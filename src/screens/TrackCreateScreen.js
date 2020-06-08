@@ -9,7 +9,7 @@ const TrackCreateScreen = () => {
   const [err, setErr] = useState(null)
 
   useEffect(() => {
-    startWatching
+    startWatching()
 
     return () => {}
   }, [])
