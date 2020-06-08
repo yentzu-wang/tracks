@@ -18,7 +18,7 @@ export default callback => {
   async function startWatching() {
     try {
       await requestPermissionsAsync()
-      await watchPositionAsync(
+      const subscriber = await watchPositionAsync(
         {
           accuracy: Accuracy.BestForNavigation,
           timeInterval: 1000,
