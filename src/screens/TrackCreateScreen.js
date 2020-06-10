@@ -1,8 +1,8 @@
 import "../_mockLocation"
 import React, { useContext, useCallback } from "react"
-import { StyleSheet } from "react-native"
 import { Text } from "react-native-elements"
 import { SafeAreaView, withNavigationFocus } from "react-navigation"
+import { FontAwesome } from "@expo/vector-icons"
 import Map from "../components/Map"
 import TrackForm from "../components/TrackForm"
 import { Context as LocationContext } from "../context/LocationContext"
@@ -28,6 +28,9 @@ const TrackCreateScreen = ({ isFocused }) => {
   )
 }
 
-const styles = StyleSheet.create({})
+TrackCreateScreen.navigationOptions = {
+  title: "Add Track",
+  tabBarIcon: <FontAwesome name="plus" size={20} />
+}
 
 export default withNavigationFocus(TrackCreateScreen)
