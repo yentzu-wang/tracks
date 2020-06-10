@@ -17,8 +17,12 @@ export default (shouldTrack, callback) => {
       setSubscriber(null)
     }
 
-    return () => {}
-  }, [shouldTrack])
+    return () => {
+      if (subscriber) {
+        subscriber.remove()
+      }
+    }
+  }, [shouldTrack, callback])
 
   async function startWatching() {
     try {
@@ -29,7 +33,7 @@ export default (shouldTrack, callback) => {
           timeInterval: 1000,
           distanceInterval: 10
         },
-        location => callback(location)
+        callback
       )
       setSubscriber(sub)
     } catch (e) {
